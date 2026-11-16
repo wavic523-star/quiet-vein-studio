@@ -9,12 +9,12 @@
 - Лицензии открыты заново: `m4bwav/sfxwright` — MIT, «Copyright (c) 2026 Mark Rogers»; `Gamezxz/pixel-art-studio` — MIT, «Copyright (c) 2026 Gamezxz». Источник — raw.githubusercontent.com, ветка `main`, 16 ноября 2026. Совпадает с `toolsmith.md`.
 - README `anthropics/skills`: «Many skills in this repo are open source (Apache 2.0)». Навыки документов в наборе — не открытые. Годятся только открытые папки `canvas-design` и `algorithmic-art`, у каждой свой `LICENSE.txt`.
 - Коммиты на 16 ноября 2026 (`git ls-remote`, HEAD): `m4bwav/sfxwright` `6f72754`, `Gamezxz/pixel-art-studio` `f8c2466`, `anthropics/skills` `e4bb5d9`, `TabooHarmony/roblox-brain` `ceee4aa`.
-- Навыки аккаунта `roblox-building`, `roblox-collaboration-mode` и `roblox-gui` отсылают за полным справочником к `TabooHarmony/roblox-brain` («read it at https://github.com/TabooHarmony/roblox-brain/…»). Значит, навыки чата «План» взяты из этого набора или основаны на нём. Версию по ссылкам не определить.
+- Навыки аккаунта `roblox-building`, `roblox-collaboration-mode` и `roblox-gui` отсылают за полным справочником к `TabooHarmony/roblox-brain` («read it at https://github.com/TabooHarmony/roblox-brain/…»). Вероятно, навыки чата «План» взяты из этого набора или основаны на нём. Ссылки этого не доказывают, версию по ним не определить.
 
 | № | Пункт | Класс | Решение | Основание | Кто может отменить |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Список кандидатов | А | принять как список кандидатов; ничего не ставить и не копировать | `toolsmith.md`; `CLAUDE.md`, раздел «Чужое» | владелец |
-| 2 | Набор для чата «План» | А | второй набор об одном и том же (`nonlooped/roblox-suite`) не предлагать: навыки «Плана» уже опираются на `TabooHarmony/roblox-brain`, а два набора дают противоречивые советы | проверка дирижёром выше | владелец |
+| 2 | Набор для чата «План» | А | второй набор об одном и том же (`nonlooped/roblox-suite`) не предлагать. Навыки аккаунта, которыми пользуется «План», за справочником отсылают к `TabooHarmony/roblox-brain` — вероятно, взяты из него или основаны на нём; набор или его версию это не доказывает. Два набора об одном дают противоречивые советы | проверка дирижёром выше | владелец |
 | 3 | Отклонённые | А | как в `toolsmith.md`: нет файла лицензии или не подходят под нужды брифа | `oss-adapt`, ворота лицензии | владелец |
 | 4 | Что брать для ролей оформления | В, ждёт владельца | варианты и рекомендация — ниже | бриф, «Проверка готовности» | владелец |
 
