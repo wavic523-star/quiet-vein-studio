@@ -7,11 +7,13 @@
 строки того же вида в каноне, стоп-слова детской аудитории и давления.
 Суждение (голос героя, загадки) остаётся контролёру.
 
-Ключи продвижения promo.<единица>.tile.title, .tile.desc, .news, .notify
-(design.md шага 2026-11-16-commerce-orchestra, раздел 5) меряются своими
-пределами: .news до 60 знаков, .notify до 99 (числа отчёта
+Ключи продвижения promo.<единица>.tile.title, .tile.sub, .tile.desc, .news,
+.notify (design.md шага 2026-11-16-commerce-orchestra, раздел 5) меряются
+своими пределами: .news до 60 знаков, .notify до 99 (числа отчёта
 drafts/2026-11-16-offer-pool/reports/, пока аналитик не подтвердил их меткой
-[roblox:…]); у .tile.title и .tile.desc предел не подтверждён — предупреждение.
+[roblox:…]); .tile.title до 25, .tile.sub до 25, .tile.desc до 1000 — по форме
+события Creator Hub, прочитанной 16 ноября 2026 (decisions/CHATS.md, Ч-18;
+bibles/commerce/market.md, РЫН-41).
 
 Запуск: python3 tools/lint_strings.py drafts/<шаг> [файл ...]
 Код возврата 1, если есть ошибки. Предупреждения кода не меняют.
@@ -23,10 +25,11 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 KEY = re.compile(r"^(?:(nail|flint|spark|rue|echo|journal|event|curio|board|ui)\.[a-z0-9]+(\.[a-z0-9]+)*"
                  r"|promo\.[a-z0-9]+\.(?:tile\.title|tile\.sub|tile\.desc|news|notify))$")
-# Пределы ключей продвижения: числа отчёта drafts/2026-11-16-offer-pool/reports/ до метки [roblox:…].
+# Пределы ключей продвижения. news и notify: числа отчёта drafts/2026-11-16-offer-pool/reports/
+# до метки [roblox:…]. Поля плитки: форма события Creator Hub, 16 ноября 2026 (Ч-18, РЫН-41).
 # Превышение — ошибка. Вид без подтверждённого предела — предупреждение.
-PROMO_LIMIT = {"news": 60, "notify": 99}
-PROMO_UNCONFIRMED = ("tile.title", "tile.sub", "tile.desc")
+PROMO_LIMIT = {"news": 60, "notify": 99, "tile.title": 25, "tile.sub": 25, "tile.desc": 1000}
+PROMO_UNCONFIRMED = ()
 CYR = re.compile(r"[А-Яа-яЁё]")
 STOP = ["kill", "blood", "dead", "death", "die ", "dies", "gun", "knife", "weapon", "scary", "terrif", "horror",
         "bet ", "jackpot", "gamble", "lucky spin", "casino",
@@ -142,7 +145,7 @@ def main(argv):
     print("мерки длины по канону: " + ", ".join(f"{k} {v}" for k, v in sorted(limit.items())))
     if promo_n:
         print("пределы продвижения: " + ", ".join(f".{k} {v}" for k, v in PROMO_LIMIT.items())
-              + "; не подтверждены: " + ", ".join("." + k for k in PROMO_UNCONFIRMED))
+              + ("; не подтверждены: " + ", ".join("." + k for k in PROMO_UNCONFIRMED) if PROMO_UNCONFIRMED else ""))
     for e in errors:
         print("  ОШИБКА " + e)
     for w in warns:
