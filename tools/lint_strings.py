@@ -63,6 +63,13 @@ def clean(t: str) -> str:
     return t.strip().strip('"“”«»').strip()
 
 
+def measured(key: str, t: str) -> str:
+    """Что меряется по длине: у страницы журнала — текст без названия («Название / текст»)."""
+    if kind(key) == "journal" and " / " in t:
+        return t.split(" / ", 1)[1].strip()
+    return t
+
+
 def main(argv):
     if not argv:
         sys.exit(__doc__)
@@ -80,7 +87,7 @@ def main(argv):
                 canon[k] = clean(t)
     limit = {}
     for k, t in canon.items():
-        limit[kind(k)] = max(limit.get(kind(k), 0), len(t))
+        limit[kind(k)] = max(limit.get(kind(k), 0), len(measured(k, t)))
 
     errors, warns, n = [], [], 0
     seen = {}
@@ -106,8 +113,8 @@ def main(argv):
                 if w in low:
                     errors.append(f"{where}: стоп-слово «{w.strip()}»")
             lim = limit.get(kind(k))
-            if lim and len(t) > lim:
-                warns.append(f"{where}: {len(t)} знаков, самая длинная строка вида «{kind(k)}» в каноне — {lim}")
+            if lim and len(measured(k, t)) > lim:
+                warns.append(f"{where}: {len(measured(k, t))} знаков, самая длинная строка вида «{kind(k)}» в каноне — {lim}")
     print(f"файлов: {len(files)}, строк: {n}, ошибок: {len(errors)}, предупреждений: {len(warns)}")
     print("мерки длины по канону: " + ", ".join(f"{k} {v}" for k, v in sorted(limit.items())))
     for e in errors:
