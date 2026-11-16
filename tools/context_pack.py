@@ -77,6 +77,26 @@ def owner_entries(ids):
     return out
 
 
+# Наборы разделов канона по маршрутам методички (docs/GUIDE.md, раздел 3).
+# «Не делаем до запуска» входит всегда: короткий и нужен любой роли.
+PRESETS = {
+    "event": ["lore-bible.md#ТЗ лор-слоя", "events-monetization.md#События и календарь",
+              "events-monetization.md#Монетизация", "lore-bible.md#Главы и грайнд",
+              "lore-bible.md#Правила текста", "lore-bible.md#Герои", "lore-bible.md#Голоса героев",
+              "stages.md#Этап 5"],
+    "hero": ["lore-bible.md#Герои", "lore-bible.md#Облик героев", "lore-bible.md#Голоса героев",
+             "lore-bible.md#Петля, загадки", "lore-bible.md#Рост героя", "lore-bible.md#Карта точек",
+             "lore-bible.md#Виральные крючки", "stages.md#Этап 5"],
+    "arc": ["lore-bible.md#Основа сюжета", "lore-bible.md#Главы и грайнд", "lore-bible.md#Петля, загадки",
+            "lore-bible.md#Герои", "lore-bible.md#ТЗ лор-слоя", "events-monetization.md#События и календарь",
+            "stages.md#Этап 5"],
+    "quest": ["lore-bible.md#Рост героя", "lore-bible.md#Голоса героев", "lore-bible.md#Главы и грайнд",
+              "lore-bible.md#Карта точек", "lore-bible.md#Правила текста"],
+    "writing": ["lore-bible.md#Правила текста", "lore-bible.md#Герои", "lore-bible.md#Голоса героев"],
+}
+ALWAYS = ["not-doing-later.md#Не делаем до запуска"]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("step")
@@ -85,7 +105,11 @@ def main():
     ap.add_argument("--heroes", default="", help="nail,flint,spark,rue,echo")
     ap.add_argument("--owner", default="", help="E-1,О-16")
     ap.add_argument("--no-keys", action="store_true")
+    ap.add_argument("--preset", choices=sorted(PRESETS), help="набор разделов канона по маршруту")
     a = ap.parse_args()
+    specs = (PRESETS.get(a.preset, []) if a.preset else []) + a.canon + ALWAYS
+    seen = set()
+    a.canon = [x for x in specs if not (x in seen or seen.add(x))]
 
     step = pathlib.Path(a.step)
     if not step.is_absolute():
@@ -97,7 +121,7 @@ def main():
            "",
            f"Собрано скриптом `tools/context_pack.py`. Снимок канона: {snap}.",
            "Разделы канона перенесены дословно: ставь метку `[canon:<файл>#<заголовок>]` по строке «Источник» над разделом.",
-           "Чего здесь нет, того роль не знает: нужен другой раздел — открытый вопрос дирижёру, а не догадка.",
+           "Нужен раздел, которого здесь нет, — прочитай его в `canon/` и назови в ответе дирижёру; догадкой пробел не заполняй.",
            ""]
     out += ["## 1. Памятка роли", "", (ROOT / "docs" / "ROLE-DIGEST.md").read_text(encoding="utf-8").split("\n", 1)[1].strip(), ""]
 
@@ -146,6 +170,19 @@ def main():
         out += ["## 5. Занятые ключи строк", "",
                 "Новый ключ не должен совпадать ни с одним из этих. Схема: `<hero>.first.N`, `nail.goal.N`, `<hero>.idle.N`, `<hero>.chN[.слово]`, `echo.nN`, `journal.pN`, `event.<событие>.N`, `<hero>.q1.sN`, `<hero>.q1.offer`, `<hero>.q1.done`, `<hero>.loop.N`.", "",
                 ", ".join(f"`{k}`" for k in sorted(keys)), ""]
+
+    finds = []
+    for fp in sorted((ROOT / "drafts" / "_findings").glob("*.md")):
+        sec = ""
+        for line in fp.read_text(encoding="utf-8").split("\n"):
+            if line.startswith("## "):
+                sec = line[3:].strip()
+            m = re.match(r"^\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|", line)
+            if m and sec:
+                finds.append(f"- {fp.name}, «{sec}» № {m.group(1)}: {m.group(2)}")
+    if finds:
+        out += ["## 6. Известные находки канона", "",
+                "Уже записаны в `drafts/_findings/`: не ищи их заново, ссылайся на номер; новая находка — только если её здесь нет.", ""] + finds + [""]
 
     if missing:
         out += ["## Не найдено", ""] + [f"- {m}" for m in missing] + [""]

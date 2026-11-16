@@ -20,7 +20,7 @@ description: |
   Small recurring texts are written in one batch by the writer instead of six separate steps.
   </commentary>
   </example>
-model: inherit
+model: sonnet
 color: cyan
 tools: ["Read", "Write", "Edit"]
 ---
