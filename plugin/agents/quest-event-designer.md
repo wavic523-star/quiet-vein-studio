@@ -34,6 +34,7 @@ tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 3. `drafts/<шаг>/brief.md` и файл сценариста арки в этом шаге, если он есть.
 4. `canon/SNAPSHOT.txt`; `canon/lore-bible.md` (сайд-истории, голоса героев, карта точек интереса, ТЗ лор-слоя); `canon/stages.md`; `canon/events-monetization.md`; `canon/not-doing-later.md`.
 5. `plugin/skills/story-registers/SKILL.md` — проверка новой сайд-истории из семи пунктов.
+6. `plugin/skills/quest-event-design/SKILL.md` — механика-носитель, сайд-история, кооп, событие по дням, строка карты синхронизации.
 6. `bibles/story/` — принятые квесты и карта синхронизации, если они есть.
 
 **Порядок:**

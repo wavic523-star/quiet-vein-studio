@@ -36,6 +36,7 @@ tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 5. `decisions/OWNER.md` и ответы в `decisions/ESCALATIONS.md`.
 6. Документы в `bibles/story/`, если они есть: принятая арка и реестры главнее твоих догадок.
 7. `plugin/skills/story-registers/SKILL.md` — правило раскрытия и проверка строки на загадки.
+8. `plugin/skills/story-arc/SKILL.md` и его `references/` — шаблон арки, карточка развилки, опоры голоса.
 
 **Порядок:**
 

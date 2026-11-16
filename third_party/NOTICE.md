@@ -123,3 +123,13 @@
 - `TemporaryLooker22/Stud-UI-Clean-Roblox` @ `7ae67f3f4cf4bd55a597d8f58d81feebb1be7dee` · `SKILL.md` · MIT · пример набора, по собственному описанию извлечённого из выпущенной игры
 - `imafreakandyalldontknowit67/steal-a-template` @ `9088ddec03d0c9ae6f55fd2953e8b7e971119413` · `packs/systems/dialogue-system/CREDITS.md` · MIT · пример пакета, где автор исходника не установлен
 - `Donchitos/Claude-Code-Game-Studios` @ `abc0de79d6ceb0b5d7aa693945849b3937afbe6a` · `.claude/rules/narrative.md` · MIT · пример правила, которое проекту противоречит (записывать «истинный ответ» тайны)
+
+## Навыки сюжета (версия 0.3.0, 16 ноября 2026)
+
+Только идеи и структура, без дословного текста. Опора — отчёт «Скиллы GitHub для сюжета и графики»; файлы в этой сессии не открывались.
+
+- `Donchitos/Claude-Code-Game-Studios` @ `abc0de79d6ceb0b5d7aa693945849b3937afbe6a` · `.claude/agents/world-builder.md`, `.claude/agents/live-ops-designer.md`, `.claude/docs/director-gates/nd-consistency.md` · MIT · идея: разделение «решает — пишет — сторожит канон», календарь и тема сезона (без пропусков и валюты), проверка голоса и противоречий. В навыке `story-arc`. Требование «истинного ответа» перевёрнуто.
+- `msitarzewski/agency-agents` @ `8ae6164602c95ca78828b148b9052460ee426885` · `game-development/narrative-designer.md` · MIT · идея: опоры голоса героя с полем «чего никогда не скажет», «лор необязателен». В навыке `story-arc`.
+- `fcsouza/agent-skills` @ `282fd138852f49ccecbddad4cb25901c85d17a07` · `skills/quest-narrative-coherence/SKILL.md` · MIT в клоне, требует сверки · идея: остановка при конфликте квеста. В навыке `quest-event-design`.
+- `AlterLab-IEU/AlterLab_GameForge` @ `aff1a3a58613a2b78d4b7a5224f29c86414aff85` · `skills/workflows/game-ai-assets/SKILL.md` · MIT · идея: журнал происхождения наград. В навыке `quest-event-design`.
+

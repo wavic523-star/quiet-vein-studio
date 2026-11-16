@@ -8,7 +8,7 @@ description: >
   «синхронизируй канон», а также при любой работе над тем, что видит и слышит игрок, до того как
   это попадёт в план. Работает только с подключённым репозиторием студии.
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Дирижёр оркестра
@@ -50,7 +50,7 @@ metadata:
 | Иконку, обложку, спрайт, палитру | `art-director` |
 | Звук, фон, музыку события, тему лагеря | `audio-designer` |
 | Реплики, записки, страницы журнала, строки реестров | `lore-keeper` |
-| Арку, главу, лор-оболочку события, сайд-историю, квесты соло и вместе, привязку сюжета к событию | по `docs/STORY-ORCHESTRA.md`: `narrative-designer`, `quest-event-designer`, `lore-keeper`, `growth-reviewer` |
+| Арку, главу, лор-оболочку события, сайд-историю, квесты соло и вместе, привязку сюжета к событию | по `docs/STORY-ORCHESTRA.md`: `narrative-designer` (навык `story-arc`), `quest-event-designer` (`quest-event-design`), `lore-keeper` (`story-registers`), `growth-reviewer` (`growth-review`) |
 | Библиотеку или инструмент из открытого репозитория | `toolsmith` |
 | Событие целиком (сцена, эффект, звук, строки) | все перечисленные, кроме `toolsmith` |
 

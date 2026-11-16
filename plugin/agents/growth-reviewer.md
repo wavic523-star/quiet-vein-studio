@@ -32,8 +32,9 @@ tools: ["Read", "Grep", "Glob", "Write"]
 1. `docs/CONVENTIONS.md` — метки, ворота G2 и G4, вид файла роли.
 2. `docs/STORY-ORCHESTRA.md` — разделы 5, 6 и 7.
 3. `drafts/<шаг>/brief.md` и все файлы авторов шага.
-4. `decisions/OWNER.md`: записи О-1 и О-16 о монетизации и тратах.
-5. `canon/SNAPSHOT.txt`; `canon/events-monetization.md` целиком («События и календарь», «Монетизация», «Метрики»); `canon/lore-bible.md` («Виральные крючки сюжета», «Подача в роликах», «ТЗ лор-слоя по исследованию трендов»); `canon/not-doing-later.md`.
+4. `decisions/OWNER.md`: записи О-1 и О-16 о монетизации и тратах; ответ E-3 в `decisions/ESCALATIONS.md`.
+5. `plugin/skills/growth-review/SKILL.md` — таблица по единицам и стоп-список давления.
+6. `canon/SNAPSHOT.txt`; `canon/events-monetization.md` целиком («События и календарь», «Монетизация», «Метрики»); `canon/lore-bible.md` («Виральные крючки сюжета», «Подача в роликах», «ТЗ лор-слоя по исследованию трендов»); `canon/not-doing-later.md`.
 
 **Порядок:**
 
