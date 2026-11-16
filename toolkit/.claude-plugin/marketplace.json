@@ -1,0 +1,14 @@
+{
+  "name": "quiet-vein-tools",
+  "description": "Навыки для работы над игрой «Лагерь старателя» (Quiet Vein)",
+  "owner": {
+    "name": "Quiet Vein"
+  },
+  "plugins": [
+    {
+      "name": "quiet-vein",
+      "source": "./plugins/quiet-vein",
+      "description": "Дешёвое чтение плана и ведение больших задач для проекта «Лагерь старателя»"
+    }
+  ]
+}
