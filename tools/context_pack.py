@@ -18,7 +18,7 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-KEY_RE = re.compile(r"\b(?:nail|flint|spark|rue|echo|journal|event|curio|board|ui)\.[a-z0-9]+(?:\.[a-z0-9]+)*\b")
+KEY_RE = re.compile(r"\b(?:nail|flint|spark|rue|echo|journal|event|curio|board|ui|promo)\.[a-z0-9]+(?:\.[a-z0-9]+)*\b")
 HERO_NAMES = {
     "nail": ["Old Nail", "Старый Гвоздь", "Гвоздь", "nail."],
     "flint": ["Flint", "Кремень", "flint."],
