@@ -28,7 +28,7 @@ KEY = re.compile(r"^(?:(nail|flint|spark|rue|echo|journal|event|curio|board|ui)\
 # Пределы ключей продвижения. news и notify: числа отчёта drafts/2026-11-16-offer-pool/reports/
 # до метки [roblox:…]. Поля плитки: форма события Creator Hub, 16 ноября 2026 (Ч-18, РЫН-41).
 # Превышение — ошибка. Вид без подтверждённого предела — предупреждение.
-PROMO_LIMIT = {"news": 60, "notify": 99, "tile.title": 25, "tile.sub": 25, "tile.desc": 1000}
+PROMO_LIMIT = {"news": 60, "notify": 99, "tile.title": 25, "tile.sub": 25, "tile.desc": 1000, "tagline": 120}  # tagline — внешний показ, 120 знаков по ответу «Продвижения» (Ч-32)
 PROMO_UNCONFIRMED = ()
 CYR = re.compile(r"[А-Яа-яЁё]")
 STOP = ["kill", "blood", "dead", "death", "die ", "dies", "gun", "knife", "weapon", "scary", "terrif", "horror",
