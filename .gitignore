@@ -1,0 +1,12 @@
+node_modules/
+__pycache__/
+*.pyc
+*.sf2
+*.sf3
+*.wav
+*.mid
+*.zip
+*.plugin
+.DS_Store
+/tmp/
+drafts/eval-*/

@@ -1,0 +1,15 @@
+{
+  "name": "qv-studio",
+  "version": "0.1.2",
+  "description": "Студия оформления игры Quiet Vein: Dig & Hatch: оркестр ролей-агентов и навыки для визуала, окружения, обликов, эффектов, звука, музыки и сюжетных реестров с проверкой по канону.",
+  "author": {
+    "name": "Quiet Vein Studio"
+  },
+  "keywords": [
+    "roblox",
+    "game-art",
+    "audio",
+    "narrative",
+    "orchestration"
+  ]
+}

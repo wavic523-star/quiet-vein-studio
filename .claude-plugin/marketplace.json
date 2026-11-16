@@ -1,0 +1,15 @@
+{
+  "name": "quiet-vein-studio",
+  "description": "Закрытый каталог плагинов проекта Quiet Vein: Dig & Hatch",
+  "owner": {
+    "name": "Quiet Vein Studio"
+  },
+  "plugins": [
+    {
+      "name": "qv-studio",
+      "description": "Оркестр ролей-агентов и навыки для оформления игры с проверкой по канону",
+      "version": "0.1.2",
+      "source": "./plugin"
+    }
+  ]
+}

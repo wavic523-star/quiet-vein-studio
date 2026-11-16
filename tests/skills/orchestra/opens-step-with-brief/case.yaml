@@ -1,0 +1,12 @@
+schema_version: "1.1"
+name: opens-step-with-brief
+expected_outcome: |
+  Запускается только в одноразовой копии репозитория студии без .git.
+  Дирижёр читает docs/CONVENTIONS.md и canon/SNAPSHOT.txt, создаёт папку шага в drafts/
+  с именем по дате и слову и кладёт туда brief.md по шаблону drafts/_template/brief.md.
+  В брифе облик Lantern привязан к записи канона о зимних фонарях меткой [canon:…],
+  версия снимка 760, цены нет, облик назван бесплатным. В состав ролей входят art-director,
+  skins-vfx-designer, continuity-reviewer и producer. В canon/, bibles/ и план ничего не пишется,
+  файлы ролей дирижёр сам не пишет.
+context:
+  scaffold_script: place-files.sh
