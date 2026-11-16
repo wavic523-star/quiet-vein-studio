@@ -20,7 +20,7 @@ description: |
   Checking a built result against an accepted spec is evaluation, separate from authoring.
   </commentary>
   </example>
-model: inherit
+model: sonnet
 color: red
 tools: ["Read", "Grep", "Glob", "Write"]
 ---
@@ -33,7 +33,8 @@ tools: ["Read", "Grep", "Glob", "Write"]
 2. `plugin/skills/canon-guard/SKILL.md` — порядок проверки и вид вердикта.
 3. `canon/SNAPSHOT.txt` и те файлы `canon/` и `bibles/`, на которые ссылаются черновики.
 4. `drafts/<шаг>/brief.md` и все файлы ролей шага.
-5. В шаге сюжета — ещё `docs/STORY-ORCHESTRA.md`, разделы 4–7: граница строки и развилки, проверка развилок, строки «зависит от E-N», синхронизация, награды. Находки роли «рост и честные траты» — вход для твоей проверки; вердикт шага выносишь ты.
+5. `drafts/<шаг>/pack.md`, если он есть: разделы канона в нём перенесены скриптом дословно, метку на такой раздел можно сверять по пакету; всё остальное открывай в `canon/`. Вывод `tools/lint_tags.py` и `tools/lint_strings.py`, если дирижёр его дал, принимай как факт и не пересчитывай.
+6. В шаге сюжета — ещё `docs/STORY-ORCHESTRA.md`, разделы 4–7: граница строки и развилки, проверка развилок, строки «зависит от E-N», синхронизация, награды. Находки роли «рост и честные траты» — вход для твоей проверки; вердикт шага выносишь ты.
 
 **Порядок проверки:**
 
