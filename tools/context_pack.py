@@ -9,6 +9,12 @@
       --canon "lore-bible.md#Герои" --canon "events-monetization.md#События и календарь" \
       --heroes rue,nail --owner E-1,E-3,О-16 --bible story/arc.md
 
+Срезы таблиц вместо целых файлов (коммерческие маршруты):
+  --market РЫН-20,РЫН-24   шапка таблицы и названные строки из bibles/commerce/market.md;
+  --chats Ч-8,Ч-14         шапка таблицы и названные строки из decisions/CHATS.md.
+Каждая строка берётся дословно, шапка — своей таблицы. Названной строки нет —
+сообщение в stderr и в конце пакета; код возврата от этого не меняется.
+
 Только чтение canon/, bibles/, decisions/, docs/ и запись одного файла pack.md.
 Сеть не нужна.
 """
@@ -41,6 +47,44 @@ def section(path: pathlib.Path, head: str):
                 out.append(nxt)
             return line.lstrip("#").strip(), "\n".join(out).rstrip()
     return None, None
+
+
+def table_slice(path: pathlib.Path, ids):
+    """Шапка таблицы и строки с названными номерами в первой ячейке.
+
+    Возвращает (строки среза, ненайденные номера). Строка идёт под шапкой своей таблицы;
+    шапка выводится один раз на таблицу. Номер сравнивается с первой ячейкой целиком.
+    """
+    lines = path.read_text(encoding="utf-8").split("\n")
+    want = [i.strip() for i in ids if i.strip()]
+    found = {}
+    head = None
+    order = []
+    for n, line in enumerate(lines):
+        if not line.startswith("|"):
+            head = None
+            continue
+        if n + 1 < len(lines) and re.match(r"^\|\s*:?-{3,}", lines[n + 1]):
+            head = (line, lines[n + 1])
+            continue
+        if re.match(r"^\|\s*:?-{3,}", line) or head is None:
+            continue
+        first = line.strip().strip("|").split("|")[0].strip().replace("*", "").replace("`", "")
+        if first in want and first not in found:
+            found[first] = (head, line)
+            order.append(first)
+    out, shown = [], set()
+    for i in want:
+        if i not in found:
+            continue
+        head, row = found[i]
+        if head not in shown:
+            if out:
+                out.append("")
+            out += list(head)
+            shown.add(head)
+            out += [r for k in want if k in found and found[k][0] == head for r in [found[k][1]]]
+    return out, [i for i in want if i not in found]
 
 
 def hero_rows(text: str, names):
@@ -110,6 +154,8 @@ def main():
     ap.add_argument("--bible", action="append", default=[], help="путь под bibles/, целиком")
     ap.add_argument("--heroes", default="", help="nail,flint,spark,rue,echo")
     ap.add_argument("--owner", default="", help="E-1,О-16")
+    ap.add_argument("--market", default="", help="РЫН-20,РЫН-24: срез bibles/commerce/market.md")
+    ap.add_argument("--chats", default="", help="Ч-8,Ч-14: срез decisions/CHATS.md")
     ap.add_argument("--no-keys", action="store_true")
     ap.add_argument("--preset", choices=sorted(PRESETS), help="набор разделов канона по маршруту")
     a = ap.parse_args()
@@ -167,6 +213,19 @@ def main():
         else:
             missing.append("bibles/" + b)
 
+    slice_missing = []
+    for flag, ids, rel, title in ((a.market, a.market, "bibles/commerce/market.md", "Ориентиры рынка (срез)"),
+                                  (a.chats, a.chats, "decisions/CHATS.md", "Ответы чатов (срез)")):
+        if not ids.strip():
+            continue
+        src = ROOT / rel
+        if not src.exists():
+            slice_missing += [f"{rel}: файла нет ({i.strip()})" for i in ids.split(",") if i.strip()]
+            continue
+        rows_out, absent = table_slice(src, ids.split(","))
+        out += [f"## {title}", "", f"Источник: `{rel}`, строки дословно, шапка своей таблицы.", ""] + rows_out + [""]
+        slice_missing += [f"{rel}: нет строки {i}" for i in absent]
+
     if not a.no_keys:
         keys = {}
         srcs = [ROOT / "canon" / "lore-bible.md"] + sorted((ROOT / "bibles").rglob("*.md"))
@@ -192,6 +251,10 @@ def main():
 
     if missing:
         out += ["## Не найдено", ""] + [f"- {m}" for m in missing] + [""]
+    if slice_missing:
+        out += ["## Не найдено в срезах", ""] + [f"- {m}" for m in slice_missing] + [""]
+        for m in slice_missing:
+            print("срез: " + m, file=sys.stderr)
     target = step / "pack.md"
     target.write_text("\n".join(out), encoding="utf-8")
     print(f"{target.relative_to(ROOT)}: {len(chr(10).join(out))} знаков, разделов канона: {len(a.canon) - len([m for m in missing if '#' in m])}, не найдено: {len(missing)}")
