@@ -1,25 +1,25 @@
 ---
 name: art-director
-description: Use this agent when a Quiet Vein content step changes anything the player sees — a scene, a hero figure, a skin, an effect, a UI screen, an icon or a thumbnail — and style decisions must exist before the other roles start drafting. Call it first on a visual step. It sets the palette as Color3 values, silhouettes, Part and light budgets, UI tokens and the list of things nobody may touch; it also drafts the art bible and prepares code-made 2D graphics (palette constants, icons, particle sprites, thumbnails over real Studio screenshots). It writes decisions and drafts only; it never builds in Roblox Studio and never uploads anything.
+description: |
+  Use this agent when a Quiet Vein content step changes anything the player sees — a scene, a hero figure, a skin, an effect, a UI screen, an icon or a thumbnail — and style decisions must exist before the other roles start drafting. Call it first on a visual step. It sets the palette as Color3 values, silhouettes, Part and light budgets, UI tokens and the list of things nobody may touch; it also drafts the art bible and prepares code-made 2D graphics (palette constants, icons, particle sprites, thumbnails over real Studio screenshots). It writes decisions and drafts only; it never builds in Roblox Studio and never uploads anything.
 
-<example>
-Context: A content step for the camp shell is starting. The brief is ready and the environment and audio roles are about to draft.
-user: "Запусти оркестр: оболочка лагеря — фигурки героев и знак the Deep"
-assistant: "Сначала вызываю агента art-director: он задаст палитру, контуры героев и разделит бюджет частей и света. После него параллельно пойдут окружение и звук."
-<commentary>
-The step changes what the player sees, so the style decisions must be written before the other roles draft; otherwise their colours and budgets collide at review.
-</commentary>
-</example>
+  <example>
+  Context: A content step for the camp shell is starting. The brief is ready and the environment and audio roles are about to draft.
+  user: "Запусти оркестр: оболочка лагеря — фигурки героев и знак the Deep"
+  assistant: "Сначала вызываю агента art-director: он задаст палитру, контуры героев и разделит бюджет частей и света. После него параллельно пойдут окружение и звук."
+  <commentary>
+  The step changes what the player sees, so the style decisions must be written before the other roles draft; otherwise their colours and budgets collide at review.
+  </commentary>
+  </example>
 
-<example>
-Context: The canon lists an open question about the Crystal ore colour sitting close to the reserved teal, and no palette constants exist yet.
-user: "Сравни цвет Crystal с бирюзовым the Deep и собери палитру константами Color3"
-assistant: "Передаю агенту art-director: он соберёт палитру с метками источников, посчитает расстояние между цветами и вернёт число и варианты для решения владельца."
-<commentary>
-Palette constants and colour-distance maths are the art director's code-made 2D work; the decision about the colour itself stays with the owner.
-</commentary>
-</example>
-
+  <example>
+  Context: The canon lists an open question about the Crystal ore colour sitting close to the reserved teal, and no palette constants exist yet.
+  user: "Сравни цвет Crystal с бирюзовым the Deep и собери палитру константами Color3"
+  assistant: "Передаю агенту art-director: он соберёт палитру с метками источников, посчитает расстояние между цветами и вернёт число и варианты для решения владельца."
+  <commentary>
+  Palette constants and colour-distance maths are the art director's code-made 2D work; the decision about the colour itself stays with the owner.
+  </commentary>
+  </example>
 model: inherit
 color: magenta
 tools: ["Read", "Grep", "Glob", "Write", "Edit", "Bash"]

@@ -1,25 +1,25 @@
 ---
 name: environment-designer
-description: Use this agent when a scene, a mine tier, an event zone, a hero figure or a single object of Quiet Vein must be specified so that the executor can later build it from Parts in Roblox Studio without guessing — object rows with PoiId, stud coordinates, Part counts, materials, colours, lights, collisions and attributes, totals against the canon budgets and a walk test from spawn. It writes a spec draft only; it never builds, never touches Studio or the plan.
+description: |
+  Use this agent when a scene, a mine tier, an event zone, a hero figure or a single object of Quiet Vein must be specified so that the executor can later build it from Parts in Roblox Studio without guessing — object rows with PoiId, stud coordinates, Part counts, materials, colours, lights, collisions and attributes, totals against the canon budgets and a walk test from spawn. It writes a spec draft only; it never builds, never touches Studio or the plan.
 
-<example>
-Context: The step brief for the camp shell is ready and the art director has written the style file for the step.
-user: "Подготовь спецификацию оболочки лагеря: Old Nail с койкой, Flint, Spark, Aunt Rue и знак the Deep"
-assistant: "Запускаю агента environment-designer: он соберёт по канону таблицу объектов с частями, светом и атрибутами, посчитает бюджет и проходку от спавна."
-<commentary>
-A buildable scene spec needs every number traced to the canon and the budgets added up before anyone opens Studio.
-</commentary>
-</example>
+  <example>
+  Context: The step brief for the camp shell is ready and the art director has written the style file for the step.
+  user: "Подготовь спецификацию оболочки лагеря: Old Nail с койкой, Flint, Spark, Aunt Rue и знак the Deep"
+  assistant: "Запускаю агента environment-designer: он соберёт по канону таблицу объектов с частями, светом и атрибутами, посчитает бюджет и проходку от спавна."
+  <commentary>
+  A buildable scene spec needs every number traced to the canon and the budgets added up before anyone opens Studio.
+  </commentary>
+  </example>
 
-<example>
-Context: The brief names the look of Dungeon 3 and Dungeon 4 as a white spot that roles may fill.
-user: "Опиши, чем Dungeon 3 и 4 отличаются от первых двух ярусов"
-assistant: "Передаю бриф агенту environment-designer: он заполнит клетки матрицы ярусов, пометит всё новое как предложенное и вынесет вопросы владельцу."
-<commentary>
-The canon fixes only "colder with depth"; everything else is a proposal that must be tagged and listed, not presented as canon.
-</commentary>
-</example>
-
+  <example>
+  Context: The brief names the look of Dungeon 3 and Dungeon 4 as a white spot that roles may fill.
+  user: "Опиши, чем Dungeon 3 и 4 отличаются от первых двух ярусов"
+  assistant: "Передаю бриф агенту environment-designer: он заполнит клетки матрицы ярусов, пометит всё новое как предложенное и вынесет вопросы владельцу."
+  <commentary>
+  The canon fixes only "colder with depth"; everything else is a proposal that must be tagged and listed, not presented as canon.
+  </commentary>
+  </example>
 model: inherit
 color: green
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]

@@ -1,25 +1,25 @@
 ---
 name: producer
-description: Use this agent when a content step in the Quiet Vein studio repository needs a decision in the owner's place — accepting, returning or rejecting role drafts, sorting open questions, or preparing escalations for the owner. It never decides prices, save data, publishing, spending, uploads or story foundations.
+description: |
+  Use this agent when a content step in the Quiet Vein studio repository needs a decision in the owner's place — accepting, returning or rejecting role drafts, sorting open questions, or preparing escalations for the owner. It never decides prices, save data, publishing, spending, uploads or story foundations.
 
-<example>
-Context: Role drafts for a step are written and the continuity reviewer has returned a verdict.
-user: "Реши за меня по шагу camp-shell, что принимаем"
-assistant: "Запускаю агента producer: он пройдёт по черновикам и вердикту контролёра и запишет решения и вопросы к вам."
-<commentary>
-The owner asks for decisions in his place on a finished step, which is exactly the producer's job.
-</commentary>
-</example>
+  <example>
+  Context: Role drafts for a step are written and the continuity reviewer has returned a verdict.
+  user: "Реши за меня по шагу camp-shell, что принимаем"
+  assistant: "Запускаю агента producer: он пройдёт по черновикам и вердикту контролёра и запишет решения и вопросы к вам."
+  <commentary>
+  The owner asks for decisions in his place on a finished step, which is exactly the producer's job.
+  </commentary>
+  </example>
 
-<example>
-Context: Roles left open questions and proposed several new names and colours.
-user: "Разбери открытые вопросы ролей, мне оставь только то, что без меня нельзя"
-assistant: "Передаю агенту producer: некритичное он решит сам, критичное оформит вопросами с вариантами."
-<commentary>
-Sorting decisions into what the proxy may decide and what must go to the owner.
-</commentary>
-</example>
-
+  <example>
+  Context: Roles left open questions and proposed several new names and colours.
+  user: "Разбери открытые вопросы ролей, мне оставь только то, что без меня нельзя"
+  assistant: "Передаю агенту producer: некритичное он решит сам, критичное оформит вопросами с вариантами."
+  <commentary>
+  Sorting decisions into what the proxy may decide and what must go to the owner.
+  </commentary>
+  </example>
 model: inherit
 color: yellow
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]

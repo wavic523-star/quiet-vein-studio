@@ -1,25 +1,25 @@
 ---
 name: toolsmith
-description: Use this agent when the Quiet Vein studio needs something from a public open-source repository — a small Luau library, a sandbox tool for code-generated sound or graphics, or the text of a role, template or checklist — and it has to be found, licence-checked, read in full, pinned by commit, vendored, adapted for Roblox and recorded before anyone relies on it. It prepares a reviewed, pinned candidate and a proposal; it never puts foreign code into the game.
+description: |
+  Use this agent when the Quiet Vein studio needs something from a public open-source repository — a small Luau library, a sandbox tool for code-generated sound or graphics, or the text of a role, template or checklist — and it has to be found, licence-checked, read in full, pinned by commit, vendored, adapted for Roblox and recorded before anyone relies on it. It prepares a reviewed, pinned candidate and a proposal; it never puts foreign code into the game.
 
-<example>
-Context: The effects role wants a spring-animation helper, and the backlog already names a candidate library.
-user: "Возьми библиотеку spr под Roblox и подготовь её для раздела «Библиотеки»"
-assistant: "Запускаю агента toolsmith: он проверит лицензию, прочитает файл целиком, закрепит коммит в third_party и вернёт кандидата с чек-листом адаптации и текстом предложения."
-<commentary>
-Moving third-party code toward the game needs a licence gate, a full read, a pinned copy and a written proposal, which is exactly the toolsmith's job.
-</commentary>
-</example>
+  <example>
+  Context: The effects role wants a spring-animation helper, and the backlog already names a candidate library.
+  user: "Возьми библиотеку spr под Roblox и подготовь её для раздела «Библиотеки»"
+  assistant: "Запускаю агента toolsmith: он проверит лицензию, прочитает файл целиком, закрепит коммит в third_party и вернёт кандидата с чек-листом адаптации и текстом предложения."
+  <commentary>
+  Moving third-party code toward the game needs a licence gate, a full read, a pinned copy and a written proposal, which is exactly the toolsmith's job.
+  </commentary>
+  </example>
 
-<example>
-Context: The audio role needs code-generated test sounds and asks for a tool inside the studio repository.
-user: "Поставь инструмент для звука кодом и закрепи версии"
-assistant: "Передаю задачу агенту toolsmith: он прочитает скрипты установки пакетов, закрепит точные версии, проверит, что инструмент не ходит в сеть и пишет только в папку шага, и запишет источники в NOTICE."
-<commentary>
-A sandbox tool runs foreign code inside the session, so it has to be read and pinned before its first run.
-</commentary>
-</example>
-
+  <example>
+  Context: The audio role needs code-generated test sounds and asks for a tool inside the studio repository.
+  user: "Поставь инструмент для звука кодом и закрепи версии"
+  assistant: "Передаю задачу агенту toolsmith: он прочитает скрипты установки пакетов, закрепит точные версии, проверит, что инструмент не ходит в сеть и пишет только в папку шага, и запишет источники в NOTICE."
+  <commentary>
+  A sandbox tool runs foreign code inside the session, so it has to be read and pinned before its first run.
+  </commentary>
+  </example>
 model: inherit
 color: yellow
 tools: ["Read", "Grep", "Glob", "Write", "Edit", "Bash", "WebFetch", "WebSearch"]

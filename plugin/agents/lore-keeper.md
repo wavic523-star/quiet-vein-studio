@@ -1,25 +1,25 @@
 ---
 name: lore-keeper
-description: Use this agent when a content step of the Quiet Vein studio touches the story — hero lines, Hum notes, journal pages, a side story, or tying an update or event to the lore — and the story registers have to be consulted and kept consistent. It checks candidate lines against the canon and the three registers (riddles, update ledger, side stories), prepares string tables and register rows for the proposal pack, and reports contradictions. It never changes existing lore-bible entries, never fixes or hints at a riddle answer, and never writes into the plan or Roblox Studio.
+description: |
+  Use this agent when a content step of the Quiet Vein studio touches the story — hero lines, Hum notes, journal pages, a side story, or tying an update or event to the lore — and the story registers have to be consulted and kept consistent. It checks candidate lines against the canon and the three registers (riddles, update ledger, side stories), prepares string tables and register rows for the proposal pack, and reports contradictions. It never changes existing lore-bible entries, never fixes or hints at a riddle answer, and never writes into the plan or Roblox Studio.
 
-<example>
-Context: The conductor is preparing the camp shell step, and the heroes need their first lines placed and checked.
-user: "Подготовь реплики героев для оболочки лагеря и проверь их по лору"
-assistant: "Запускаю агента lore-keeper: он сверит строки с лор-библией и реестрами, проверит ключи и длину и вернёт таблицу строк с метками источников."
-<commentary>
-Any step with in-game text needs the registers consulted first, so that a new line neither contradicts the canon nor closes a riddle.
-</commentary>
-</example>
+  <example>
+  Context: The conductor is preparing the camp shell step, and the heroes need their first lines placed and checked.
+  user: "Подготовь реплики героев для оболочки лагеря и проверь их по лору"
+  assistant: "Запускаю агента lore-keeper: он сверит строки с лор-библией и реестрами, проверит ключи и длину и вернёт таблицу строк с метками источников."
+  <commentary>
+  Any step with in-game text needs the registers consulted first, so that a new line neither contradicts the canon nor closes a riddle.
+  </commentary>
+  </example>
 
-<example>
-Context: The owner wants the winter event tied into the story without giving away any riddle.
-user: "Привяжи сюжет к «Ночи фонарей»: что обновление открывает и какие загадки затрагивает"
-assistant: "Передаю задачу агенту lore-keeper: он подготовит строку журнала обновлений с вариантами, какой вопрос приоткрыть и какие два оставить, и отметит затронутые загадки."
-<commentary>
-Planning what an update reveals is ledger work: one question answered, two opened, and no answer fixed in advance.
-</commentary>
-</example>
-
+  <example>
+  Context: The owner wants the winter event tied into the story without giving away any riddle.
+  user: "Привяжи сюжет к «Ночи фонарей»: что обновление открывает и какие загадки затрагивает"
+  assistant: "Передаю задачу агенту lore-keeper: он подготовит строку журнала обновлений с вариантами, какой вопрос приоткрыть и какие два оставить, и отметит затронутые загадки."
+  <commentary>
+  Planning what an update reveals is ledger work: one question answered, two opened, and no answer fixed in advance.
+  </commentary>
+  </example>
 model: inherit
 color: blue
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]

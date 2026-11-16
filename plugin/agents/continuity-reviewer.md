@@ -1,25 +1,25 @@
 ---
 name: continuity-reviewer
-description: Use this agent when drafts in the Quiet Vein studio repository must be checked against the canon before anyone accepts them — source tags, hard gates, consistency between roles, coverage of the brief — or when built results must be checked against an accepted spec. It only verifies and reports; it never edits drafts or proposes design ideas.
+description: |
+  Use this agent when drafts in the Quiet Vein studio repository must be checked against the canon before anyone accepts them — source tags, hard gates, consistency between roles, coverage of the brief — or when built results must be checked against an accepted spec. It only verifies and reports; it never edits drafts or proposes design ideas.
 
-<example>
-Context: Several roles have finished their files for a content step.
-user: "Проверь черновики шага camp-shell по канону, нет ли выдумок"
-assistant: "Запускаю агента continuity-reviewer: он откроет метки источников, пройдёт ворота и вернёт вердикт с доказательствами."
-<commentary>
-A fresh reviewer who did not write the drafts must verify them before the producer decides.
-</commentary>
-</example>
+  <example>
+  Context: Several roles have finished their files for a content step.
+  user: "Проверь черновики шага camp-shell по канону, нет ли выдумок"
+  assistant: "Запускаю агента continuity-reviewer: он откроет метки источников, пройдёт ворота и вернёт вердикт с доказательствами."
+  <commentary>
+  A fresh reviewer who did not write the drafts must verify them before the producer decides.
+  </commentary>
+  </example>
 
-<example>
-Context: The camp shell was built in Studio and screenshots are saved in the step folder.
-user: "Сверь построенное со спецификацией окружения"
-assistant: "Передаю агенту continuity-reviewer снимки и спецификацию: он сверит число частей, цвета и точки интереса."
-<commentary>
-Checking a built result against an accepted spec is evaluation, separate from authoring.
-</commentary>
-</example>
-
+  <example>
+  Context: The camp shell was built in Studio and screenshots are saved in the step folder.
+  user: "Сверь построенное со спецификацией окружения"
+  assistant: "Передаю агенту continuity-reviewer снимки и спецификацию: он сверит число частей, цвета и точки интереса."
+  <commentary>
+  Checking a built result against an accepted spec is evaluation, separate from authoring.
+  </commentary>
+  </example>
 model: inherit
 color: red
 tools: ["Read", "Grep", "Glob", "Write"]
