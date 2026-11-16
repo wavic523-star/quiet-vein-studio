@@ -20,7 +20,7 @@ description: |
   Sorting decisions into what the proxy may decide and what must go to the owner.
   </commentary>
   </example>
-model: inherit
+model: sonnet
 color: yellow
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 ---
