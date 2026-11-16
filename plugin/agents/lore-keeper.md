@@ -14,7 +14,7 @@ description: |
 
   <example>
   Context: The owner wants the winter event tied into the story without giving away any riddle.
-  user: "Привяжи сюжет к «Ночи фонарей»: что обновление открывает и какие загадки затрагивает"
+  user: "Внеси «Ночь фонарей» из принятой арки в журнал обновлений и проверь строки события"
   assistant: "Передаю задачу агенту lore-keeper: он подготовит строку журнала обновлений с вариантами, какой вопрос приоткрыть и какие два оставить, и отметит затронутые загадки."
   <commentary>
   Planning what an update reveals is ledger work: one question answered, two opened, and no answer fixed in advance.
