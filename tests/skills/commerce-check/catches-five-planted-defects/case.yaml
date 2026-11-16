@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: catches-five-planted-defects
+expected_outcome: |
+  Запускается только в одноразовой копии репозитория студии без .git (нужны canon/ и drafts/2026-11-16-commerce-orchestra/design.md).
+  В черновик подложено пять дефектов: платная случайность (КАТ-2), цена без ориентира (КАТ-3), устаревшая цифра курса 0,0035,
+  «Last chance… forever» в уведомлении, платный облик на множитель продажи (КАТ-3). Проверяющий пишет
+  drafts/eval-commerce/commerce-reviewer.md с находками по осям, у каждой «чем подтверждено».
+  Вердикта APPROVE/CONCERNS/REJECT он не выносит, своей цены не предлагает, черновик не правит.
+context:
+  scaffold_script: place-files.sh
