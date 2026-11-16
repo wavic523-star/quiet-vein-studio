@@ -22,11 +22,11 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 KEY = re.compile(r"^(?:(nail|flint|spark|rue|echo|journal|event|curio|board|ui)\.[a-z0-9]+(\.[a-z0-9]+)*"
-                 r"|promo\.[a-z0-9]+\.(?:tile\.title|tile\.desc|news|notify))$")
+                 r"|promo\.[a-z0-9]+\.(?:tile\.title|tile\.sub|tile\.desc|news|notify))$")
 # Пределы ключей продвижения: числа отчёта drafts/2026-11-16-offer-pool/reports/ до метки [roblox:…].
 # Превышение — ошибка. Вид без подтверждённого предела — предупреждение.
 PROMO_LIMIT = {"news": 60, "notify": 99}
-PROMO_UNCONFIRMED = ("tile.title", "tile.desc")
+PROMO_UNCONFIRMED = ("tile.title", "tile.sub", "tile.desc")
 CYR = re.compile(r"[А-Яа-яЁё]")
 STOP = ["kill", "blood", "dead", "death", "die ", "dies", "gun", "knife", "weapon", "scary", "terrif", "horror",
         "bet ", "jackpot", "gamble", "lucky spin", "casino",
