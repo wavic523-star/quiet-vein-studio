@@ -1,4 +1,4 @@
-> Снимок плана. Версия плана: 867. Выгрузка: 16 ноября 2026, 15:55 UTC.
+> Снимок плана. Версия плана: 878. Выгрузка: 16 ноября 2026, 19:25 UTC.
 > Только чтение. Источник правды — план: https://claude.ai/artifact/PYAV7Z6Ak4zjBRFodgk38j
 > Если снимок и план расходятся, действует план. Править этот файл нельзя.
 
@@ -48,7 +48,7 @@
 | Глава | Что делает игрок (грайнд) | Что узнаёт | Когда |
 | --- | --- | --- | --- |
 | 0. Новичок | Первая руда, продажа, первая кирка | Лагерь пуст, Гвоздь ищет людей | MVP |
-| 1. Первый ярус | Подземелья 1–2, первый огород | Шахту закрыли не просто так; первая странная находка | MVP |
+| 1. Первый ярус | Подземелья 1–2, первый огород | Шахту закрыли не просто так; первая странная находка — первый Crystal игрока | MVP |
 | 2. Находка из темноты | Первое яйцо, первый питомец | Лукерья: такие яйца не выращивают, их находят; Эхо оставляет первую записку | MVP |
 | 3. Зов | Подземелья 3–4, метеориты возле лагеря | Каждый метеорит приходит не случайно: это зов Глубины | MVP |
 | 4. Старые рельсы | Подземелья 5–6, кирка до 10 уровня | Искра находит рельсы: здесь жили до нас | MVP, только текст |
@@ -151,9 +151,9 @@
 | nail.ch1.shut | Don't ask why it was shut. ...Okay, ask. I won't answer. | Начало главы 1 |
 | nail.goal.4 | Reach Dungeon 2. | Цель 1, глава 1 |
 | nail.goal.5 | Plant your first seed. | Цель 2, глава 1 |
-| nail.goal.6 | Find something strange. | Цель 3, глава 1 |
-| nail.ch1.strange | Huh. Never seen that in these rocks. | Первая странная находка |
-| nail.ch1.strange.2 | Put it in your journal. I'm not touching it. | Первая странная находка |
+| nail.goal.6 | Find something strange. | Цель 3, глава 1; снимается первым Crystal игрока (если Crystal найден раньше — цель сразу выполнена) |
+| nail.ch1.strange | Huh. Never seen that in these rocks. | Первый Crystal игрока (первая странная находка); не в первые 10–15 минут — ждёт их конца |
+| nail.ch1.strange.2 | Put it in your journal. I'm not touching it. | Сразу после nail.ch1.strange |
 | nail.idle.1 | Dig, sell, repeat. That's the whole trick. | Простой, вращаем по кругу |
 | nail.idle.2 | Quiet today. Good for business. | Простой |
 | nail.idle.3 | Something hums down there. Ignore it. | Простой, от главы 1 |
@@ -165,7 +165,7 @@
 | --- | --- | --- | --- |
 | journal.p0 | Day One | The camp is quiet. The lamp still works. Someone left it lit. | Первая руда |
 | journal.p1 | The Shut Mine | A sign on the old shaft says DO NOT. The rest is scratched out. | Вход в подземелье 1 |
-| journal.p2 | Something Warm | The ore down here is warm. Ore should not be warm. | Первая странная находка |
+| journal.p2 | Something Warm | The ore down here is warm. Ore should not be warm. | Первый Crystal игрока (первая странная находка); не в первые 10–15 минут |
 
 Сверка с лором: в таблице глав сказано «лагерь пуст», но уже в главе 0 есть торговец и кузнец. Я пишу «нет других старателей», чтобы не противоречить. Если вы имели в виду другое, скажите, я поправлю.
 
@@ -177,9 +177,9 @@
 
 | ID | Текст | Когда |
 | --- | --- | --- |
-| nail.goal.7 | Find an egg in the mine. | Цель 1, глава 2 |
-| nail.goal.8 | Hatch it. | Цель 2, глава 2 |
-| nail.goal.9 | Feed your pet a crop. | Цель 3, глава 2 |
+| nail.goal.7 | Find an egg in the mine. | Пока нет первого яйца; снимается находкой первого яйца |
+| nail.goal.8 | Hatch it. | От первого яйца до вылупления |
+| nail.goal.9 | Feed your pet a crop. | От первого питомца до первого кормления |
 | nail.goal.10 | Reach Dungeon 4. | Цель 1, глава 3 |
 | nail.goal.11 | Break a sky rock. | Цель 2, глава 3 |
 | nail.goal.12 | Read a Hum note. (предложено) | Цель 3, глава 3 |
@@ -192,26 +192,26 @@
 | flint.idle.1 | Prices are fair. Fair to me. | Простой |
 | flint.idle.2 | Nice haul. I'll call it... decent. | Простой |
 | flint.idle.3 | Never met a rock I didn't love. | Простой |
-| flint.ch2 | Eggs? In a mine? Show Aunt Rue, not me. I only buy ore. Mostly. | Глава 2 |
+| flint.ch2 | Eggs? In a mine? Show Aunt Rue, not me. I only buy ore. Mostly. | Первый разговор после первого яйца; не в первые 10–15 минут |
 | flint.ch3 | Sky rocks! Ore that falls to you. Bargain. Odd how they land near camp. | Глава 3 |
 | spark.first | A new digger! Need a pick? Mine are the shiniest. | Первая встреча |
 | spark.idle.1 | Bigger pack, bigger smile. Science. | Простой |
 | spark.idle.2 | Hold still. Is that gold on your hat? | Простой |
 | spark.idle.3 | I name all my picks. This one's Sparkle Two. | Простой |
-| spark.ch2 | A pet egg! Can I hold it? Is it warm? It's warm! | Глава 2 |
+| spark.ch2 | A pet egg! Can I hold it? Is it warm? It's warm! | Первый разговор, пока в инкубаторе яйцо, не в первые 10–15 минут; если первое уже вылупилось — со следующим яйцом |
 | spark.ch3 | The sky ore hums a little. Cute. Don't tell Old Nail. | Глава 3 |
 | rue.first | Mind the beds, dear. Everything here sleeps late. | Первая встреча |
 | rue.idle.1 | Slow water, strong roots. | Простой |
-| rue.idle.2 | A fed pet is a calm pet. | Простой |
+| rue.idle.2 | A fed pet is a calm pet. | Простой, только когда у игрока есть питомец |
 | rue.idle.3 | Don't rush a seed. It remembers. | Простой |
-| rue.ch2 | Eggs aren't grown, dear. They're found. Someone leaves them. I never asked who. | Глава 2 |
-| rue.ch3 | The rocks fall at night now. Pets hum along. | Глава 3 |
+| rue.ch2 | Eggs aren't grown, dear. They're found. Someone leaves them. I never asked who. | Первый разговор после первого яйца; не в первые 10–15 минут |
+| rue.ch3 | The rocks fall at night now. Pets hum along. | Глава 3, если у игрока есть питомец |
 
 **Записки Echo (он не говорит, только пишет)**
 
 | ID | Текст | Когда |
 | --- | --- | --- |
-| echo.n1 | Keep it warm. Please. I can't. | Рядом с первым яйцом, глава 2 |
+| echo.n1 | Keep it warm. Please. I can't. | Рядом с яйцом в инкубаторе, не в первые 10–15 минут; если первое уже вылупилось — со следующим яйцом |
 | echo.n2 | That one was a hello. | После первого метеорита, глава 3 |
 | echo.n3 | Did you hear it? Say yes. | В подземелье 4, глава 3 |
 
@@ -227,7 +227,7 @@
 
 | ID | Название | Текст | Когда открывается |
 | --- | --- | --- | --- |
-| journal.p3 | The Egg | Found it in the dark. It's warm. Eggs shouldn't be warm either. | Первое яйцо |
+| journal.p3 | The Egg | Found it in the dark. It's warm. Eggs shouldn't be warm either. | Первое яйцо; не в первые 10–15 минут |
 | journal.p4 | First Note | A note in the dark. Neat handwriting. No name. | Первая записка Echo |
 | journal.p5 | Sky Rock | It fell on purpose. Rocks don't fall on purpose. | Первый метеорит |
 
@@ -286,7 +286,7 @@
 - Spark: молодой, лёгкий, всегда в движении. Рыжие волосы, закопчённые очки на лбу, красный шарф, большой молоток. Цвет: огненно-оранжевый.
 - Aunt Rue: круглая и тёплая. Зелёная шаль, соломенная шляпа, лейка, рядом корзина с ростками. Цвет: мягкий зелёный.
 - Echo: тела нет. Бумажные записки на гвоздях, написаны неровным почерком, рядом едва заметный бирюзовый знак-спираль. Цвет: бирюзовый, единственный холодный на фоне тёплого лагеря.
-- Правило узнавания: тёплые цвета у людей, холодный бирюзовый только у Echo и знака Глубины. Игрок сразу видит, где «чужое».
+- Правило узнавания: тёплые цвета у людей, холодный бирюзовый только у Echo и знака Глубины. Игрок сразу видит, где «чужое». Исключение — руда Crystal: её цвет остаётся, Crystal связан с Deep; в тексте игры эта связь не объясняется (решено владельцем 16 ноября).
 - Нельзя: оружие, кровь, страшные лица. Лица простые, с точками-глазами. Шляпа, шарф и шаль можно менять скинами позже.
 
 #### Карта точек интереса (предложено)
@@ -381,6 +381,8 @@
 Л-9. Подарок возвращения. Если игрока не было 3 и более дней, экран возврата (У-1) дарит бесплатный ускоритель ×2 на 15 минут и строку Old Nail. Правило постоянное, без таймера и без «успей». Лор: лагерь ждал. Удержание D3–D7: понятная причина вернуться. Деньги: игрок пробует ускоритель, платный на 39 остаётся в магазине, цену поверх подарка не показываем. Куда: этап 3, строка У-1, плюс 1 час, запас этапа 3 уменьшается. ICE 4×4÷1 = 16.
 
 Л-10. Вехи журнала (к Л-3). За 25%, 50%, 75% и 100% собранных страниц (считаем числом страниц, а не процентом Л-3, который выходит 24 декабря; решено владельцем 16 ноября, вариант (а)) журнал выдаёт бесплатное: 25% самородки и строка Echo, 50% облик кирки, 75% самородки и строка героя, 100% табличка лагеря «Hum» на постамент витрины. Облики перекрашиваем из существующих, новых моделей нет. Лор: Hum notes (карточка 8). Удержание D7: цель «ещё одна страница» и закрытая коллекция. Деньги: бесплатные облики задают статус, платные облики Д-2 (январь или раньше) встают в те же слоты, шансов нет. Число страниц считается из сохранённого журнала; новый ключ в профиле это схема, сначала карточка. Окно Б, 2 часа сверх Л-3, ICE 4×3÷2 = 6.
+
+Строки вех Л-10 (предложено; чат «Сюжет», 16 ноября). 25% — записка Echo `echo.n7` «Pages are filling. I like that.» и подпись «A quarter of the pages. Nuggets for you.». 50% — «Half the pages. Your Pickaxe gets new paint.». 75% — Old Nail `nail.ms.75` «Journal's nearly full. Don't tell anyone I'm impressed.» и «Three quarters of the pages. More nuggets.». 100% — «Every page found. A Hum plaque is yours.». Ключ `nail.ms.75` — новая схема `<hero>.ms.N` для строк вех. Число страниц вырастет 24 декабря, когда добавятся страницы: как пересчитывать вехи, решает «План». Строки о яйце, питомце и первом Crystal показываются по событиям, а не по главе; точную границу «первых 10–15 минут» и слоты экрана для целей 7–9 задаёт «План». Подробно — репозиторий quiet-vein-studio, `bibles/story/lines/2026-11-16-plan-asks.md`.
 
 Л-11. Зимние фонари (к Л-6). За 10 фонарей зимнего события игрок получает бесплатный облик кирки «Lantern». Фонари падают из зимних культур и ледяной пещеры, которые уже входят в 8 часов события. Лор: Ночь фонарей, строка героя. Удержание: цель на 18–31 декабря, несколько заходов. Деньги: платный облик к событию с известным результатом по Д-2, в январе или раньше; цена в диапазоне 49–299 по Д-1, решает владелец. Окно Б, 1 час. ICE 3×4÷1 = 12.
 
