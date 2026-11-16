@@ -28,6 +28,8 @@ def main(argv):
     files = [f for f in files if not (f.parent / 'ARCHIVED.md').exists()]
     owner = (ROOT / 'decisions' / 'OWNER.md').read_text(encoding='utf-8')
     esc = (ROOT / 'decisions' / 'ESCALATIONS.md').read_text(encoding='utf-8')
+    chats_p = ROOT / 'decisions' / 'CHATS.md'
+    chats = chats_p.read_text(encoding='utf-8') if chats_p.exists() else ''
     readme_h = headings(ROOT / 'docs' / 'project-readme.md') or []
     cache, bad, count = {}, [], 0
     for f in files:
@@ -70,6 +72,17 @@ def main(argv):
                     bad.append((rel, tag + ' — вопроса нет в decisions/ESCALATIONS.md'))
                 elif not ans:
                     bad.append((rel, tag + ' — у вопроса нет ответа владельца'))
+        # Метка [чат:Ч-<число>] — ответ другого чата проекта, запись в decisions/CHATS.md.
+        for m in re.finditer(r'\[чат[^\]]*\]', text):
+            tag = m.group(0)
+            if '<' in tag or tag in ('[чат:Ч-N]', '[чат:…]'):
+                continue  # образец записи метки
+            count += 1
+            mm = re.fullmatch(r'\[чат:Ч-(\d+)\]', tag)
+            if not mm:
+                bad.append((rel, 'метка чата не по образцу: ' + tag))
+            elif not re.search(r'\|\s*Ч-' + mm.group(1) + r'\s*\|', chats):
+                bad.append((rel, tag + ' — записи нет в decisions/CHATS.md'))
         for m in re.finditer(r'\[canon:project-readme\.md#[^\]]+\]', text):
             bad.append((rel, 'старый вид метки: ' + m.group(0)))
     print(f'файлов: {len(files)}, меток проверено: {count}, не открылось: {len(bad)}')
