@@ -1,0 +1,20 @@
+{
+  "name": "quiet-vein-studio",
+  "description": "Закрытый каталог плагинов проекта Quiet Vein: Dig & Hatch",
+  "owner": {
+    "name": "Quiet Vein Studio"
+  },
+  "plugins": [
+    {
+      "name": "qv-studio",
+      "description": "Оркестр ролей-агентов и навыки для оформления игры с проверкой по канону",
+      "version": "0.5.1",
+      "source": "./plugin"
+    },
+    {
+      "name": "quiet-vein",
+      "description": "Навыки чата «План»: qv-plan-reader (дешёвое чтение плана) и qv-big-task (шаги этапа и крупные задачи)",
+      "source": "./toolkit/plugins/quiet-vein"
+    }
+  ]
+}

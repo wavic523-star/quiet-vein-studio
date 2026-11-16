@@ -1,0 +1,15 @@
+{
+  "name": "qv-audio-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Quiet Vein: тестовые SFX и музыкальная петля кодом. Ставить только командой npm ci --ignore-scripts.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "jsfxr": "1.4.1",
+    "midi-writer-js": "3.2.1",
+    "spessasynth_core": "4.4.10"
+  }
+}
