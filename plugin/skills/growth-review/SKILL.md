@@ -9,7 +9,7 @@ description: >
   вердикт шага (его даёт контролёр по canon-guard); цен и шансов не предлагает. Для разбора
   живых метрик Creator Dashboard — навык roblox-growth-design, не этот.
 metadata:
-  version: "0.5.0"
+  version: "0.5.1"
 ---
 
 # Рост и честные траты
