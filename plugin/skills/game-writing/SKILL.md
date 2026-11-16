@@ -9,7 +9,7 @@ description: >
   Not for arc or quest structure (story-arc, quest-event-design) and not for registers
   (story-registers). In the «План» chat the account skill roblox-lore-writer is used instead.
 metadata:
-  version: "0.4.2"
+  version: "0.5.0"
 ---
 
 # Игровой текст

@@ -11,7 +11,7 @@ description: >
   roblox-lore-writer); этот навык даёт ему память и проверки. Арку строит навык story-arc, квесты и
   события — quest-event-design.
 metadata:
-  version: "0.4.2"
+  version: "0.5.0"
 ---
 
 # Сюжетные реестры

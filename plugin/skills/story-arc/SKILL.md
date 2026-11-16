@@ -9,7 +9,7 @@ description: >
   сюжета студии заменяет superpowers:brainstorming. Только черновик в репозитории студии: план и
   Roblox Studio навык не трогает.
 metadata:
-  version: "0.4.2"
+  version: "0.5.0"
 ---
 
 # Арка сюжета
