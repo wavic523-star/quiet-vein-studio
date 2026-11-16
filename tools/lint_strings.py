@@ -7,6 +7,12 @@
 строки того же вида в каноне, стоп-слова детской аудитории и давления.
 Суждение (голос героя, загадки) остаётся контролёру.
 
+Ключи продвижения promo.<единица>.tile.title, .tile.desc, .news, .notify
+(design.md шага 2026-11-16-commerce-orchestra, раздел 5) меряются своими
+пределами: .news до 60 знаков, .notify до 99 (числа отчёта
+drafts/2026-11-16-offer-pool/reports/, пока аналитик не подтвердил их меткой
+[roblox:…]); у .tile.title и .tile.desc предел не подтверждён — предупреждение.
+
 Запуск: python3 tools/lint_strings.py drafts/<шаг> [файл ...]
 Код возврата 1, если есть ошибки. Предупреждения кода не меняют.
 """
@@ -15,7 +21,12 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-KEY = re.compile(r"^(nail|flint|spark|rue|echo|journal|event|curio|board|ui)\.[a-z0-9]+(\.[a-z0-9]+)*$")
+KEY = re.compile(r"^(?:(nail|flint|spark|rue|echo|journal|event|curio|board|ui)\.[a-z0-9]+(\.[a-z0-9]+)*"
+                 r"|promo\.[a-z0-9]+\.(?:tile\.title|tile\.desc|news|notify))$")
+# Пределы ключей продвижения: числа отчёта drafts/2026-11-16-offer-pool/reports/ до метки [roblox:…].
+# Превышение — ошибка. Вид без подтверждённого предела — предупреждение.
+PROMO_LIMIT = {"news": 60, "notify": 99}
+PROMO_UNCONFIRMED = ("tile.title", "tile.desc")
 CYR = re.compile(r"[А-Яа-яЁё]")
 STOP = ["kill", "blood", "dead", "death", "die ", "dies", "gun", "knife", "weapon", "scary", "terrif", "horror",
         "bet ", "jackpot", "gamble", "lucky spin", "casino",
@@ -25,6 +36,8 @@ STOP = ["kill", "blood", "dead", "death", "die ", "dies", "gun", "knife", "weapo
 
 def kind(key: str) -> str:
     p = key.split(".")
+    if p[0] == "promo":
+        return "promo"
     if p[0] == "journal":
         return "journal"
     if p[0] == "echo":
@@ -87,9 +100,11 @@ def main(argv):
                 canon[k] = clean(t)
     limit = {}
     for k, t in canon.items():
+        if kind(k) == "promo":
+            continue  # у ключей продвижения свои пределы, PROMO_LIMIT
         limit[kind(k)] = max(limit.get(kind(k), 0), len(measured(k, t)))
 
-    errors, warns, n = [], [], 0
+    errors, warns, n, promo_n = [], [], 0, 0
     seen = {}
     for f in files:
         rel = f.relative_to(ROOT) if ROOT in f.parents else f
@@ -112,11 +127,22 @@ def main(argv):
             for w in STOP:
                 if w in low:
                     errors.append(f"{where}: стоп-слово «{w.strip()}»")
+            if kind(k) == "promo":
+                promo_n += 1
+                tail = k.split(".", 2)[2] if k.count(".") >= 2 else ""
+                if tail in PROMO_LIMIT and len(t) > PROMO_LIMIT[tail]:
+                    errors.append(f"{where}: {len(t)} знаков, предел .{tail} — {PROMO_LIMIT[tail]}")
+                elif tail in PROMO_UNCONFIRMED:
+                    warns.append(f"{where}: предел .{tail} не подтверждён до метки [roblox:…]")
+                continue
             lim = limit.get(kind(k))
             if lim and len(measured(k, t)) > lim:
                 warns.append(f"{where}: {len(measured(k, t))} знаков, самая длинная строка вида «{kind(k)}» в каноне — {lim}")
     print(f"файлов: {len(files)}, строк: {n}, ошибок: {len(errors)}, предупреждений: {len(warns)}")
     print("мерки длины по канону: " + ", ".join(f"{k} {v}" for k, v in sorted(limit.items())))
+    if promo_n:
+        print("пределы продвижения: " + ", ".join(f".{k} {v}" for k, v in PROMO_LIMIT.items())
+              + "; не подтверждены: " + ", ".join("." + k for k in PROMO_UNCONFIRMED))
     for e in errors:
         print("  ОШИБКА " + e)
     for w in warns:

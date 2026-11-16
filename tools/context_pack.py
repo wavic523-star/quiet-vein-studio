@@ -93,6 +93,12 @@ PRESETS = {
     "quest": ["lore-bible.md#Рост героя", "lore-bible.md#Голоса героев", "lore-bible.md#Главы и грайнд",
               "lore-bible.md#Карта точек", "lore-bible.md#Правила текста"],
     "writing": ["lore-bible.md#Правила текста", "lore-bible.md#Герои", "lore-bible.md#Голоса героев"],
+    # Коммерческие маршруты (drafts/2026-11-16-commerce-orchestra/design.md, раздел 6).
+    # Принятые документы bibles/commerce/ добавляются ключом --bible.
+    "commerce": ["events-monetization.md#Монетизация", "events-monetization.md#События и календарь",
+                 "events-monetization.md#Метрики", "not-doing-later.md#Не делаем до запуска",
+                 "not-doing-later.md#Позже", "lore-bible.md#Редкие предметы",
+                 "lore-bible.md#Виральные крючки", "lore-bible.md#ТЗ лор-слоя", "stages.md#Этап 5"],
 }
 ALWAYS = ["not-doing-later.md#Не делаем до запуска"]
 

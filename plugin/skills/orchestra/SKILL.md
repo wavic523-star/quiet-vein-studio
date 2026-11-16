@@ -55,6 +55,13 @@ metadata:
 | Арку, главу, лор-оболочку события, сайд-историю, квесты соло и вместе, привязку сюжета к событию | по маршрутам `docs/GUIDE.md`, раздел 3: `narrative-designer` (навык `story-arc`), `quest-event-designer` (`quest-event-design`), `writer` (`game-writing`), `lore-keeper` (`story-registers`), `growth-reviewer` (`growth-review`, только полный шаг) |
 | Библиотеку или инструмент из открытого репозитория | `toolsmith` |
 | Событие целиком (сцена, эффект, звук, строки) | по маршруту события S, M или L (`docs/GUIDE.md`, раздел 3); оформление — следом, отдельным шагом |
+| Ориентиры рынка: новая таблица, перепроверка факта (лёгкий) | `market-analyst` (навык `market-benchmarks`) → `commerce-reviewer` (`commerce-check`) |
+| Календарь окна или квартала (полный) | `liveops-planner` (`liveops-calendar`) → `lore-keeper` + `commerce-reviewer` |
+| Каталог окна (полный) | `monetization-designer` (`shop-design`) → `writer` (названия) → `lore-keeper` + `growth-reviewer` + `commerce-reviewer` |
+| Набор продвижения единицы (обычный) | `promo-strategist` (`promo-kit`) → `writer` (ключи `promo.*`) → `commerce-reviewer` |
+| Совместный шаг: событие L, обновление, акт (полный) | структура сюжета по маршрутам выше → `liveops-planner` → `monetization-designer` + `promo-strategist` → `writer` → `lore-keeper` + `growth-reviewer` + `commerce-reviewer` |
+
+Коммерческие строки — по `drafts/2026-11-16-commerce-orchestra/design.md`, разделы 4, 6 и 7, и по методичке `docs/GUIDE.md`: сюжет первый, коммерция накладкой, одна таблица слов, проверки в конце. `market-analyst` зовётся в начале маршрута, только если для шага нет строки `РЫН-N` свежее 30 дней. Пакет контекста коммерческого шага — `--preset commerce` (принятые документы `bibles/commerce/` — ключом `--bible`). Пять коммерческих ролей, пока их нет в установленной версии плагина, зовутся так, как сказано в разделе «Как звать роль» для роли, которой ещё нет в установленной версии; если установленного типа с тем же набором инструментов нет — запасным путём из того же раздела, с блоком ограничений.
 
 `continuity-reviewer` участвует в каждом шаге; `producer` — в полном шаге и в каждом шаге оформления, в лёгком и обычном шаге сюжета его решения принимает дирижёр.
 
