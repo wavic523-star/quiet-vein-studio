@@ -81,6 +81,8 @@
 | Зимнее событие — первая история о том, кто жил в лагере раньше; глава 5+ обещает то же и «что на самом дне» | Строк нет | `[canon:lore-bible.md#Главы и грайнд]` |
 | Страница «Another Dig»: "Same camp. Same tools. Something small is different." | `journal.p9` | `[canon:lore-bible.md#Глава 5: Новые слои, заглушка]` |
 | «Звездопад»: осколок небесной руды гудит и тёплый ("It hums when you stand still"); Spark: "Does yours hum too?"; Old Nail: "They hum. Again." Повторяет показанное: гул — `nail.idle.3`, `spark.ch3`, `rue.ch3`, `journal.p8`; тепло — `journal.p2`, `journal.p3`, `spark.ch2`, `echo.n1`. Привязка к загадке: «нет» `[bible:events/starfall.md#6. Строки]`; канон привязки не даёт. Малый вопрос — в журнале обновлений | `event.starfall.1` (`camp.board`), `event.starfall.2`, `journal.p10`. Выбрано владельцем `[владелец:О-25]`, не канон | `[bible:events/starfall.md#6. Строки]` `[предложено]`; показанное — `[canon:lore-bible.md#Строки: Old Nail, главы 0–1, страницы журнала]`, `[canon:lore-bible.md#Сюжет, часть 2: главы 2–3, Flint, Spark, Aunt Rue, Echo]`, `[canon:lore-bible.md#Глава 4: Старые рельсы, текст и сайд-история Spark]` |
+| Страница «Day One»: "The camp is quiet. The lamp still works. Someone left it lit." (показана с запуска, в реестре пропущена) | `journal.p0`, первая руда | `[canon:lore-bible.md#Строки: Old Nail, главы 0–1, страницы журнала]` `[продюсер:2026-11-16-lantern-night#32]` |
+| Old Nail: «фонарь в руке» (облик; виден с первой минуты, в реестре пропущен) | `camp.nail` | `[canon:lore-bible.md#Облик героев]`, `[canon:lore-bible.md#Карта точек интереса]` `[продюсер:2026-11-16-lantern-night#32]` |
 
 ## 5. Противоречия канона рядом с уликами
 
