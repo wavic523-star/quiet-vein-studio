@@ -14,9 +14,8 @@ drafts/       шаги: бриф, пакет контекста, файлы ро
 bibles/       принятое: bibles/story/ (арка, главы, события, квесты, герои, реестры, карта синхронизации), арт- и звуковая библии
 decisions/    слова владельца (OWNER.md), вопросы и ответы (ESCALATIONS.md), журнал решений (LOG.md)
 docs/         GUIDE.md — методичка; CONVENTIONS.md — метки и ворота; ROLE-DIGEST.md — памятка роли;
-              PROJECT-INSTRUCTION.md — инструкция проекта для вставки; project-readme.md — пересказ плана
-plugin/       плагин qv-studio: 12 ролей-агентов и 13 навыков
-toolkit/      навыки чата «План»: qv-plan-reader, qv-big-task
+              project-readme.md — пересказ плана; mail/ — архив копий писем 16–17 ноября, не пополняется
+plugin/       плагин qv-studio: 17 ролей-агентов и 18 навыков
 tools/        context_pack.py, lint_strings.py, lint_tags.py, canon_snapshot.py, звук кодом
 third_party/  NOTICE.md: что взято из открытых репозиториев и под какой лицензией
 tests/        проверочные запросы к навыкам
@@ -44,4 +43,4 @@ BACKLOG.md    задачи студии и сроки
 
 ## Правила репозитория
 
-`CLAUDE.md`: ветка `claude/Сюжет`, в `main` — запросом на слияние, сливает владелец; один коммит — одно действие; без хуков, `.claude/settings.json`, `.mcp.json` и чужих исполняемых файлов; чужое — через навык `oss-adapt` и запись в `third_party/NOTICE.md`.
+`CLAUDE.md`: ветка `claude/Сюжет`, в `main` — запросом на слияние, дирижёр вливает его сам после проверок и пишет номер коммита на шину; один коммит — одно действие; без хуков, `.claude/settings.json`, `.mcp.json` и чужих исполняемых файлов; чужое — через навык `oss-adapt` и запись в `third_party/NOTICE.md`.
