@@ -20,7 +20,7 @@ description: |
   Promotion text never answers a mystery or a small arc question.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: purple
 tools: ["Read", "Write", "Edit"]
 ---

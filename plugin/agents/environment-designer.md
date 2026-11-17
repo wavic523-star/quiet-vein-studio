@@ -20,7 +20,7 @@ description: |
   The canon fixes only "colder with depth"; everything else is a proposal that must be tagged and listed, not presented as canon.
   </commentary>
   </example>
-model: inherit
+model: opus
 color: green
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 ---

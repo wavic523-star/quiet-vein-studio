@@ -20,7 +20,7 @@ description: |
   Palette constants and colour-distance maths are the art director's code-made 2D work; the decision about the colour itself stays with the owner.
   </commentary>
   </example>
-model: inherit
+model: opus
 color: magenta
 tools: ["Read", "Grep", "Glob", "Write", "Edit", "Bash"]
 ---

@@ -20,7 +20,7 @@ description: |
   Checking a built result against an accepted spec is evaluation, separate from authoring.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: red
 tools: ["Read", "Grep", "Glob", "Write"]
 ---

@@ -20,7 +20,7 @@ description: |
   Paid items never act on chance or multipliers; the role answers with a rule, not a workaround.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: orange
 tools: ["Read", "Write", "Edit"]
 ---

@@ -20,7 +20,7 @@ description: |
   Rule checks go to Roblox pages; pressure on children stays with the growth reviewer.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: red
 tools: ["Read", "Write", "WebFetch"]
 ---

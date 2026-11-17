@@ -20,7 +20,7 @@ description: |
   A rule or rate of Roblox is recorded only from a Roblox page, with every conflicting value kept.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: blue
 tools: ["Read", "Write", "Edit", "WebSearch", "WebFetch"]
 ---

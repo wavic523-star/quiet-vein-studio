@@ -8,13 +8,8 @@
     {
       "name": "qv-studio",
       "description": "Оркестр ролей-агентов и навыки для оформления игры с проверкой по канону",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "source": "./plugin"
-    },
-    {
-      "name": "quiet-vein",
-      "description": "Навыки чата «План»: qv-plan-reader (дешёвое чтение плана) и qv-big-task (шаги этапа и крупные задачи)",
-      "source": "./toolkit/plugins/quiet-vein"
     }
   ]
 }

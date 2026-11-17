@@ -20,7 +20,7 @@ description: |
   An effect needs a budget card with counted particles and safety checks, not a prose description.
   </commentary>
   </example>
-model: inherit
+model: opus
 color: magenta
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 ---

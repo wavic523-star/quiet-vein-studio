@@ -20,7 +20,7 @@ description: |
   An event's story wrapper is narrative work; activities and rewards go to the quest and event designer next.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: blue
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 ---
