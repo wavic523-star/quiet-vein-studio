@@ -20,7 +20,7 @@ description: |
   The reviewer ties story beats to the plan's metrics without inventing numbers.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: yellow
 tools: ["Read", "Grep", "Glob", "Write"]
 ---

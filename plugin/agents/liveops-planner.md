@@ -20,7 +20,7 @@ description: |
   The planner places units in time; what the player does inside the event stays with the quest and event designer.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: blue
 tools: ["Read", "Write", "Edit"]
 ---

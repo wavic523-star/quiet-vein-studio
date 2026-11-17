@@ -20,7 +20,7 @@ description: |
   A new hero or storyline must be checked against the registers before it reaches the owner as a fork.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: blue
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 ---

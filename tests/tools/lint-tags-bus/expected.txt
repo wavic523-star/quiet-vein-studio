@@ -1,0 +1,3 @@
+файлов: 1, меток проверено: 3, не открылось: 2
+  tests/tools/lint-tags-bus/case.txt: [шина:M-0002] — сообщения нет в выгрузках шины (bus.md)
+  tests/tools/lint-tags-bus/case.txt: метка шины не по образцу: [шина:M-12]

@@ -20,7 +20,7 @@ description: |
   Generating test audio with the pinned scripts and logging it as unheard candidates is this agent's job; uploading stays with the owner.
   </commentary>
   </example>
-model: inherit
+model: opus
 color: cyan
 tools: ["Read", "Grep", "Glob", "Write", "Edit", "Bash", "WebFetch"]
 ---

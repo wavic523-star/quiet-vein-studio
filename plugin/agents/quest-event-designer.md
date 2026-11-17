@@ -20,7 +20,7 @@ description: |
   A side story is a quest spec checked against the side-story rules of the canon.
   </commentary>
   </example>
-model: sonnet
+model: opus
 color: green
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 ---

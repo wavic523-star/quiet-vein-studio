@@ -4,6 +4,9 @@
 Что читает: все .md в plugin/, docs/, bibles/, drafts/, tests/, BACKLOG.md.
 Что проверяет: метки [canon:файл#заголовок], [readme:заголовок], [владелец:О-N],
 [владелец:E-N] открываются (у вопроса E-N должен быть непустой ответ владельца);
+метки [чат:Ч-N] открываются по decisions/CHATS.md, метки [шина:M-NNNN] — по выгрузкам
+шины bus.md (раздел «## M-NNNN» в drafts/*/bus.md или в bus.md рядом с проверяемым
+файлом и в проверяемых папках);
 любая другая метка, начинающаяся с «[владелец», считается ошибкой; старых меток
 [canon:project-readme.md#…] нет. Содержание строки с источником не сверяет:
 это работа контролёра.
@@ -31,6 +34,14 @@ def main(argv):
     chats_p = ROOT / 'decisions' / 'CHATS.md'
     chats = chats_p.read_text(encoding='utf-8') if chats_p.exists() else ''
     readme_h = headings(ROOT / 'docs' / 'project-readme.md') or []
+    # Выгрузки шины: роли шины не видят, метка [шина:M-NNNN] открывается по bus.md.
+    bus_files = set((ROOT / 'drafts').glob('*/bus.md'))
+    for t in targets:
+        bus_files |= set(t.rglob('bus.md')) if t.is_dir() else {t.parent / 'bus.md'}
+    bus = set()
+    for bf in bus_files:
+        if bf.exists():
+            bus |= set(re.findall(r'^##\s+M-(\d{4})\b', bf.read_text(encoding='utf-8'), re.M))
     cache, bad, count = {}, [], 0
     for f in files:
         text = f.read_text(encoding='utf-8')
@@ -83,6 +94,17 @@ def main(argv):
                 bad.append((rel, 'метка чата не по образцу: ' + tag))
             elif not re.search(r'\|\s*Ч-' + mm.group(1) + r'\s*\|', chats):
                 bad.append((rel, tag + ' — записи нет в decisions/CHATS.md'))
+        # Метка [шина:M-NNNN] — сообщение другого чата на шине, выгрузка в bus.md.
+        for m in re.finditer(r'\[шина[^\]]*\]', text):
+            tag = m.group(0)
+            if '<' in tag or tag in ('[шина:M-NNNN]', '[шина:…]'):
+                continue  # образец записи метки
+            count += 1
+            mm = re.fullmatch(r'\[шина:M-(\d{4})\]', tag)
+            if not mm:
+                bad.append((rel, 'метка шины не по образцу: ' + tag))
+            elif mm.group(1) not in bus:
+                bad.append((rel, tag + ' — сообщения нет в выгрузках шины (bus.md)'))
         for m in re.finditer(r'\[canon:project-readme\.md#[^\]]+\]', text):
             bad.append((rel, 'старый вид метки: ' + m.group(0)))
     print(f'файлов: {len(files)}, меток проверено: {count}, не открылось: {len(bad)}')

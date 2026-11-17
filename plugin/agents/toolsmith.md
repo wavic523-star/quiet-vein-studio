@@ -20,7 +20,7 @@ description: |
   A sandbox tool runs foreign code inside the session, so it has to be read and pinned before its first run.
   </commentary>
   </example>
-model: inherit
+model: opus
 color: yellow
 tools: ["Read", "Grep", "Glob", "Write", "Edit", "Bash", "WebFetch", "WebSearch"]
 ---
