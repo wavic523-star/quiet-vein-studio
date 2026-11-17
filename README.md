@@ -14,7 +14,7 @@ drafts/       шаги: бриф, пакет контекста, файлы ро
 bibles/       принятое: bibles/story/ (арка, главы, события, квесты, герои, реестры, карта синхронизации), арт- и звуковая библии
 decisions/    слова владельца (OWNER.md), вопросы и ответы (ESCALATIONS.md), журнал решений (LOG.md)
 docs/         GUIDE.md — методичка; CONVENTIONS.md — метки и ворота; ROLE-DIGEST.md — памятка роли;
-              project-readme.md — пересказ плана; mail/ — архив копий писем 16–17 ноября, не пополняется
+              project-readme.md — пересказ плана
 plugin/       плагин qv-studio: 17 ролей-агентов и 18 навыков
 tools/        context_pack.py, lint_strings.py, lint_tags.py, canon_snapshot.py, звук кодом
 third_party/  NOTICE.md: что взято из открытых репозиториев и под какой лицензией
