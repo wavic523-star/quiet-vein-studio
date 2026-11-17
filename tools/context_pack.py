@@ -11,7 +11,10 @@
 
 Срезы таблиц вместо целых файлов (коммерческие маршруты):
   --market РЫН-20,РЫН-24   шапка таблицы и названные строки из bibles/commerce/market.md;
-  --chats Ч-8,Ч-14         шапка таблицы и названные строки из decisions/CHATS.md.
+  --chats Ч-8,Ч-14         шапка таблицы и названные строки из decisions/CHATS.md;
+  --bus M-0034,M-0037      названные сообщения из выгрузки шины drafts/<шаг>/bus.md
+                           (раздел «## M-NNNN» целиком; выгружает дирижёр, образец —
+                           drafts/_template/bus.md).
 Каждая строка берётся дословно, шапка — своей таблицы. Названной строки нет —
 сообщение в stderr и в конце пакета; код возврата от этого не меняется.
 
@@ -156,6 +159,7 @@ def main():
     ap.add_argument("--owner", default="", help="E-1,О-16")
     ap.add_argument("--market", default="", help="РЫН-20,РЫН-24: срез bibles/commerce/market.md")
     ap.add_argument("--chats", default="", help="Ч-8,Ч-14: срез decisions/CHATS.md")
+    ap.add_argument("--bus", default="", help="M-0034,M-0037: сообщения из drafts/<шаг>/bus.md")
     ap.add_argument("--no-keys", action="store_true")
     ap.add_argument("--preset", choices=sorted(PRESETS), help="набор разделов канона по маршруту")
     a = ap.parse_args()
@@ -225,6 +229,25 @@ def main():
         rows_out, absent = table_slice(src, ids.split(","))
         out += [f"## {title}", "", f"Источник: `{rel}`, строки дословно, шапка своей таблицы.", ""] + rows_out + [""]
         slice_missing += [f"{rel}: нет строки {i}" for i in absent]
+
+    bus_ids = [i.strip() for i in a.bus.split(",") if i.strip()]
+    if bus_ids:
+        bus_p = step / "bus.md"
+        if not bus_p.exists():
+            slice_missing += [f"{step.name}/bus.md: файла нет ({i})" for i in bus_ids]
+        else:
+            bus_text = bus_p.read_text(encoding="utf-8")
+            got = []
+            for i in bus_ids:
+                m = re.search(r"^##\s+" + re.escape(i) + r"\b.*?(?=^##\s|\Z)", bus_text, re.S | re.M)
+                if m:
+                    got.append(m.group(0).rstrip())
+                else:
+                    slice_missing.append(f"{step.name}/bus.md: нет сообщения {i}")
+            if got:
+                out += ["## Сообщения шины (выгрузка)", "",
+                        f"Источник: `drafts/{step.name}/bus.md`, сообщения дословно. Это слова чатов, а не владельца; метка `[шина:M-NNNN]`.", ""]
+                out += ["#" + g for g in got] + [""]  # «## M-…» становится «### M-…»
 
     if not a.no_keys:
         keys = {}
